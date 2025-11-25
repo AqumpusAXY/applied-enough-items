@@ -1,0 +1,21 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "github.AqumpusAXY.appliedenoughitems.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "appliedenoughitems.refmap.json",
+  "mixins": [],
+  "client": [
+    "AEBaseScreenAccessor",
+    "KeySortersMixin",
+    "MEStorageScreenMixin",
+    "RepoMixin",
+    "VerticalButtonBarAccessor"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  }
+}
