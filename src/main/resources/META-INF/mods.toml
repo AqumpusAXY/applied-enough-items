@@ -66,12 +66,12 @@ side = "BOTH"
 modId = "ae2"
 mandatory = true
 versionRange = "${ae2_version_range}"
-ordering = "NONE"
+ordering = "AFTER"
 side = "BOTH"
 
 [[dependencies.${mod_id}]]
 modId = "jei"
 mandatory = false
 versionRange = "${jei_version_range}"
-ordering = "AFTER"
-side = "BOTH"
+ordering = "NONE"
+side = "CLIENT"
