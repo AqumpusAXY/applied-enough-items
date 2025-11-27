@@ -13,7 +13,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-public class CreativeModeTabOrder {
+public class ItemCreativeModeTabOrder {
     private static final Map<Item, Integer> ITEM_TO_CREATIVE_TAB_INDEX = new HashMap<>();
     private static boolean isInitialized = false;
 

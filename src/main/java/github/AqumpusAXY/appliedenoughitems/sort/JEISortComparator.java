@@ -13,7 +13,7 @@ public class JEISortComparator {
     private static final List<String> MOD_PRIORITY = List.of("minecraft", "ae2");
     public static final Comparator<AEKey> JEI_ASC = getModNameComparator()
             .thenComparing(getTypeComparator())
-            .thenComparing(getCreativeModeTabComparator())
+            .thenComparing(getItemCreativeModeTabComparator())
             .thenComparing(getFluidRegistrationComparator());
     public static final Comparator<AEKey> JEI_DESC = JEI_ASC.reversed();
 
@@ -42,12 +42,12 @@ public class JEISortComparator {
         return Comparator.comparingInt(JEISortComparator::getTypePriority);
     }
 
-    public static Comparator<AEKey> getCreativeModeTabComparator() {
+    public static Comparator<AEKey> getItemCreativeModeTabComparator() {
         return (a, b) -> {
             if (a.getClass() == AEItemKey.class && b.getClass() == AEItemKey.class) {
                 Item itemA = ((AEItemKey) a).getItem();
                 Item itemB = ((AEItemKey) b).getItem();
-                return Integer.compare(CreativeModeTabOrder.getIndex(itemA), CreativeModeTabOrder.getIndex(itemB));
+                return Integer.compare(ItemCreativeModeTabOrder.getIndex(itemA), ItemCreativeModeTabOrder.getIndex(itemB));
             }
             return 0;
         };
