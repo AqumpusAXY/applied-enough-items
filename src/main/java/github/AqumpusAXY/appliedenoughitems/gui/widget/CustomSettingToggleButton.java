@@ -34,7 +34,6 @@ import appeng.client.gui.style.Blitter;
 import appeng.client.gui.widgets.IconButton;
 import appeng.core.localization.ButtonToolTips;
 import com.mojang.blaze3d.systems.RenderSystem;
-import github.AqumpusAXY.appliedenoughitems.config.ClientConfig;
 import github.AqumpusAXY.appliedenoughitems.config.CustomSortOrder;
 import github.AqumpusAXY.appliedenoughitems.gui.CustomIcon;
 import github.AqumpusAXY.appliedenoughitems.localization.CustomButtonToolTips;
@@ -50,33 +49,43 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.*;
 
-public class CustomSortButton extends IconButton {
+import static github.AqumpusAXY.appliedenoughitems.config.ClientConfig.CUSTOM_SORT_ORDER;
 
-    private static Map<CustomSortButton.EnumPair, CustomSortButton.ButtonAppearance> appearances;
-    private final ForgeConfigSpec.EnumValue<CustomSortOrder> BUTTON_SETTING = ClientConfig.CUSTOM_SORT_ORDER;
-    private final CustomSortButton.IHandler ON_PRESS;
-    private CustomSortOrder currentSortOrder = BUTTON_SETTING.get();
+public class CustomSettingToggleButton<T extends Enum<T>> extends IconButton {
+
+    private static Map<EnumPair<?>, ButtonAppearance> appearances;
+    private final ForgeConfigSpec.EnumValue<T> BUTTON_SETTING;
+    private final IHandler<CustomSettingToggleButton<T>> ON_PRESS;
+//    private final EnumSet<T> validValues;
+    private T currentValue;
 
     @FunctionalInterface
-    public interface IHandler {
-        void handle(CustomSortButton button, boolean backwards);
+    public interface IHandler<T extends CustomSettingToggleButton<?>> {
+        void handle(T button, boolean backwards);
     }
 
-    public CustomSortButton(IHandler onPress) {
-        super(CustomSortButton::onPress);
+    public CustomSettingToggleButton(ForgeConfigSpec.EnumValue<T> setting, IHandler<CustomSettingToggleButton<T>> onPress) {
+        super(CustomSettingToggleButton::onPress);
         this.ON_PRESS = onPress;
+
+        this.BUTTON_SETTING = setting;
+        this.currentValue = BUTTON_SETTING.get();
         if (appearances == null) {
             appearances = new HashMap<>();
-            registerApp(CustomIcon.SORT_BY_JEI.getBlitter(), CustomSortOrder.JEI, CustomButtonToolTips.JEI);
-            registerApp(Icon.SORT_BY_NAME.getBlitter(), CustomSortOrder.NAME, ButtonToolTips.ItemName);
-            registerApp(Icon.SORT_BY_AMOUNT.getBlitter(), CustomSortOrder.AMOUNT, ButtonToolTips.NumberOfItems);
-            registerApp(Icon.SORT_BY_MOD.getBlitter(), CustomSortOrder.MOD, ButtonToolTips.Mod);
+            registerApp(CustomIcon.SORT_BY_JEI.getBlitter(), CUSTOM_SORT_ORDER, CustomSortOrder.JEI,
+                    CustomButtonToolTips.SortBy, CustomButtonToolTips.JEI);
+            registerApp(Icon.SORT_BY_NAME.getBlitter(), CUSTOM_SORT_ORDER, CustomSortOrder.NAME,
+                    CustomButtonToolTips.SortBy, CustomButtonToolTips.ItemName);
+            registerApp(Icon.SORT_BY_AMOUNT.getBlitter(), CUSTOM_SORT_ORDER, CustomSortOrder.AMOUNT,
+                    CustomButtonToolTips.SortBy, CustomButtonToolTips.NumberOfItems);
+            registerApp(Icon.SORT_BY_MOD.getBlitter(), CUSTOM_SORT_ORDER, CustomSortOrder.MOD,
+                    CustomButtonToolTips.SortBy, CustomButtonToolTips.Mod);
         }
     }
 
     private static void onPress(Button btn) {
-        if (btn instanceof CustomSortButton) {
-            ((CustomSortButton) btn).triggerPress();
+        if (btn instanceof CustomSettingToggleButton) {
+            ((CustomSettingToggleButton<?>) btn).triggerPress();
         }
     }
 
@@ -91,27 +100,25 @@ public class CustomSortButton extends IconButton {
         ON_PRESS.handle(this, backwards);
     }
 
-    private static void registerApp(Blitter blitter, CustomSortOrder val, Component... tooltipLines) {
+    private static <T extends Enum<T>> void registerApp(Blitter blitter, ForgeConfigSpec.EnumValue<T> setting, T val,
+                                                        CustomButtonToolTips title, Component... tooltipLines) {
         var lines = new ArrayList<Component>();
-        lines.add(ButtonToolTips.SortBy.text());
+        lines.add(title.text());
         Collections.addAll(lines, tooltipLines);
 
         appearances.put(
-                new EnumPair(ClientConfig.CUSTOM_SORT_ORDER, val),
+                new EnumPair<>(setting, val),
                 new ButtonAppearance(blitter, null, lines));
     }
 
-    private static void registerApp(Blitter blitter, CustomSortOrder val, CustomButtonToolTips hint) {
-        registerApp(blitter, val, hint.text());
-    }
-
-    private static void registerApp(Blitter blitter, CustomSortOrder val, ButtonToolTips hint) {
-        registerApp(blitter, val, hint.text());
+    private static <T extends Enum<T>> void registerApp(Blitter blitter, ForgeConfigSpec.EnumValue<T> setting, T val,
+                                    CustomButtonToolTips title, CustomButtonToolTips hint) {
+        registerApp(blitter, setting, val, title, hint.text());
     }
 
     @Nullable
-    private CustomSortButton.ButtonAppearance getAppearance() {
-        return appearances.get(new CustomSortButton.EnumPair(this.BUTTON_SETTING, this.currentSortOrder));
+    private CustomSettingToggleButton.ButtonAppearance getAppearance() {
+        return appearances.get(new CustomSettingToggleButton.EnumPair<>(this.BUTTON_SETTING, this.currentValue));
     }
 
     /**
@@ -130,17 +137,19 @@ public class CustomSortButton extends IconButton {
         return Icon.TOOLBAR_BUTTON_BACKGROUND.getBlitter();
     }
 
-    public CustomSortOrder getCurrentSortOrder() {
-        return this.currentSortOrder;
+    public T getCurrentValue() {
+        return this.currentValue;
     }
 
-    public CustomSortOrder getNextSortOrder(boolean backwards) {
-        return CustomSortOrder.values()[(this.currentSortOrder.ordinal() + (backwards ? -1 : 1)) % CustomSortOrder.values().length];
+    public T getNextValue(boolean backwards) {
+        T[] values = this.currentValue.getDeclaringClass().getEnumConstants();
+        int nextOrdinal = (this.currentValue.ordinal() + (backwards ? -1 : 1)) % values.length;
+        return values[nextOrdinal];
     }
 
-    public void toggleSortOrder(boolean backwards) {
-        this.BUTTON_SETTING.set(getNextSortOrder(backwards));
-        this.currentSortOrder = this.BUTTON_SETTING.get();
+    public void toggleSetting(boolean backwards) {
+        this.BUTTON_SETTING.set(getNextValue(backwards));
+        this.currentValue = this.BUTTON_SETTING.get();
     }
 
     @Override
@@ -183,11 +192,11 @@ public class CustomSortButton extends IconButton {
     @Override
     public List<Component> getTooltipMessage() {
 
-        if (this.BUTTON_SETTING == null || this.currentSortOrder == null) {
+        if (this.BUTTON_SETTING == null || this.currentValue == null) {
             return Collections.emptyList();
         }
 
-        var buttonAppearance = appearances.get(new EnumPair(this.BUTTON_SETTING, this.currentSortOrder));
+        var buttonAppearance = appearances.get(new EnumPair<>(this.BUTTON_SETTING, this.currentValue));
         if (buttonAppearance == null) {
             return Collections.singletonList(ButtonToolTips.NoSuchMessage.text());
         }
@@ -195,12 +204,12 @@ public class CustomSortButton extends IconButton {
         return buttonAppearance.tooltipLines;
     }
 
-    private static final class EnumPair {
+    private static final class EnumPair<T extends Enum<T>> {
 
-        final ForgeConfigSpec.EnumValue<CustomSortOrder> SETTING;
-        final CustomSortOrder VALUE;
+        final ForgeConfigSpec.EnumValue<T> SETTING;
+        final T VALUE;
 
-        public EnumPair(ForgeConfigSpec.EnumValue<CustomSortOrder> setting, CustomSortOrder value) {
+        public EnumPair(ForgeConfigSpec.EnumValue<T> setting, T value) {
             this.SETTING = setting;
             this.VALUE = value;
         }
@@ -218,7 +227,7 @@ public class CustomSortButton extends IconButton {
             if (this.getClass() != obj.getClass()) {
                 return false;
             }
-            final CustomSortButton.EnumPair other = (CustomSortButton.EnumPair) obj;
+            final EnumPair<?> other = (EnumPair<?>) obj;
             return other.SETTING == this.SETTING && other.VALUE == this.VALUE;
         }
     }

@@ -1,3 +1,7 @@
 {
-  "gui.tooltips.appliedenoughitems.JEI": "JEI"
+  "gui.tooltips.appliedenoughitems.SortBy": "Sort By",
+  "gui.tooltips.appliedenoughitems.JEI": "JEI",
+  "gui.tooltips.appliedenoughitems.ItemName": "Item name",
+  "gui.tooltips.appliedenoughitems.NumberOfItems": "Number of items",
+  "gui.tooltips.appliedenoughitems.Mod": "Mod"
 }

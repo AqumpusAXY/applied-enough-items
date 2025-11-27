@@ -31,7 +31,12 @@ package github.AqumpusAXY.appliedenoughitems.localization;
 import appeng.core.localization.LocalizationEnum;
 
 public enum CustomButtonToolTips implements LocalizationEnum {
-    JEI("JEI");
+    SortBy("Sort By"),
+    JEI("JEI"),
+    ItemName("Item name"),
+    NumberOfItems("Number of items"),
+    Mod("Mod"),
+    ;
 
     private final String englishText;
 

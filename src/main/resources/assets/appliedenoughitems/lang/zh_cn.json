@@ -1,3 +1,7 @@
 {
-  "gui.tooltips.appliedenoughitems.JEI": "JEI"
+  "gui.tooltips.appliedenoughitems.SortBy": "排序按",
+  "gui.tooltips.appliedenoughitems.JEI": "JEI",
+  "gui.tooltips.appliedenoughitems.ItemName": "物品名称",
+  "gui.tooltips.appliedenoughitems.NumberOfItems": "物品数量",
+  "gui.tooltips.appliedenoughitems.Mod": "模组"
 }
