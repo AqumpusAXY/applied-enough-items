@@ -15,11 +15,10 @@ public class JEIHistoryOrder {
     private static final BoundedLinkedList<AEKey> HISTORY_AE_KEYS = new BoundedLinkedList<>(MAX_HISTORY_SIZE);
     private static boolean isInitialized = false;
 
-    //FIXME: 初始化不会读取全部的历史记录
     public static void initOrUpdateHistoryElements(List<IElement<?>> historyElements) {
         if (!isInitialized) {
-            for (IElement<?> element : historyElements) {
-                HISTORY_AE_KEYS.addLast(getElementAEKey(element));
+            for (int i = 0; i < MAX_HISTORY_SIZE; i++) {
+                HISTORY_AE_KEYS.addLast(getElementAEKey(historyElements.get(i)));
             }
 
             isInitialized = true;
