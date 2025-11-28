@@ -4,14 +4,18 @@ import appeng.api.config.SortDir;
 import appeng.api.config.SortOrder;
 import appeng.api.stacks.AEKey;
 import appeng.client.gui.me.common.Repo;
+import appeng.client.gui.widgets.IScrollSource;
+import appeng.client.gui.widgets.ISortSource;
 import appeng.menu.me.common.GridInventoryEntry;
 import github.AqumpusAXY.appliedenoughitems.config.ClientConfig;
 import github.AqumpusAXY.appliedenoughitems.config.CustomSortOrder;
+import github.AqumpusAXY.appliedenoughitems.util.RepoManager;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.Comparator;
@@ -32,5 +36,10 @@ public abstract class RepoMixin {
         } else {
             cir.setReturnValue(Comparator.comparing(GridInventoryEntry::getWhat, getKeyComparator(sortOrder, sortDir)));
         }
+    }
+
+    @Inject(method = "<init>", at = @At("RETURN"))
+    private void onInit(IScrollSource src, ISortSource sortSrc, CallbackInfo ci) {
+        RepoManager.setCurrentRepo((Repo) (Object) this);
     }
 }

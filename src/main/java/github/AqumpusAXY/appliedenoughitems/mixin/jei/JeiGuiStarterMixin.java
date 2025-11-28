@@ -1,6 +1,7 @@
 package github.AqumpusAXY.appliedenoughitems.mixin.jei;
 
-import github.AqumpusAXY.appliedenoughitems.sort.JEISortComparator;
+import github.AqumpusAXY.appliedenoughitems.sort.JEIHistoryOrder;
+import github.AqumpusAXY.appliedenoughitems.util.RepoManager;
 import mezz.jei.api.helpers.IColorHelper;
 import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.helpers.IJeiHelpers;
@@ -109,6 +110,12 @@ public class JeiGuiStarterMixin {
             ClientInputHandler clientInputHandler,
             ResourceReloadHandler resourceReloadHandler) {
 
-        lookupHistory.addSourceListChangedListener(() -> JEISortComparator.setHistoryElements(lookupHistory.getElements()));
+        lookupHistory.addSourceListChangedListener(() -> {
+            JEIHistoryOrder.initOrUpdateHistoryElements(lookupHistory.getElements());
+            var repo = RepoManager.getCurrentRepo();
+            if (repo != null) {
+                repo.updateView();
+            }
+        });
     }
 }
