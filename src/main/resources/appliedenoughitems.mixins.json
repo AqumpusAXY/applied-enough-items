@@ -6,11 +6,12 @@
   "refmap": "appliedenoughitems.refmap.json",
   "mixins": [],
   "client": [
-    "AEBaseScreenAccessor",
-    "KeySortersMixin",
-    "MEStorageScreenMixin",
-    "RepoMixin",
-    "VerticalButtonBarAccessor"
+    "ae2.AEBaseScreenAccessor",
+    "ae2.KeySortersMixin",
+    "ae2.MEStorageScreenMixin",
+    "ae2.RepoMixin",
+    "ae2.VerticalButtonBarAccessor",
+    "jei.JeiGuiStarterMixin"
   ],
   "injectors": {
     "defaultRequire": 1

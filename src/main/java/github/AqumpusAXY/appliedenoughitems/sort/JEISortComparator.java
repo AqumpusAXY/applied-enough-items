@@ -3,6 +3,7 @@ package github.AqumpusAXY.appliedenoughitems.sort;
 import appeng.api.stacks.AEFluidKey;
 import appeng.api.stacks.AEItemKey;
 import appeng.api.stacks.AEKey;
+import mezz.jei.gui.overlay.elements.IElement;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.material.Fluid;
 
@@ -10,6 +11,7 @@ import java.util.Comparator;
 import java.util.List;
 
 public class JEISortComparator {
+    private static List<IElement<?>> historyElements;
     private static final List<String> MOD_PRIORITY = List.of("minecraft", "ae2");
     public static final Comparator<AEKey> JEI_ASC = getModNameComparator()
             .thenComparing(getTypeComparator())
@@ -28,6 +30,10 @@ public class JEISortComparator {
             return 2;
         }
     }
+
+//    public static Comparator<AEKey> getHistoryComparator() {
+//
+//    }
 
     public static Comparator<AEKey> getModNameComparator() {
         return Comparator.comparing(AEKey::getModId,
@@ -62,5 +68,9 @@ public class JEISortComparator {
             }
             return 0;
         };
+    }
+
+    public static void setHistoryElements(List<IElement<?>> historyElements) {
+        JEISortComparator.historyElements = historyElements;
     }
 }

@@ -1,4 +1,4 @@
-package github.AqumpusAXY.appliedenoughitems.mixin;
+package github.AqumpusAXY.appliedenoughitems.mixin.ae2;
 
 import appeng.api.config.SortDir;
 import appeng.api.config.SortOrder;

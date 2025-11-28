@@ -1,4 +1,4 @@
-package github.AqumpusAXY.appliedenoughitems.mixin;
+package github.AqumpusAXY.appliedenoughitems.mixin.ae2;
 
 import appeng.client.gui.AEBaseScreen;
 import appeng.client.gui.widgets.VerticalButtonBar;

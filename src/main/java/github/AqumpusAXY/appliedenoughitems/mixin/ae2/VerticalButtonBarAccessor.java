@@ -1,4 +1,4 @@
-package github.AqumpusAXY.appliedenoughitems.mixin;
+package github.AqumpusAXY.appliedenoughitems.mixin.ae2;
 
 import appeng.client.gui.widgets.VerticalButtonBar;
 import net.minecraft.client.gui.components.Button;
