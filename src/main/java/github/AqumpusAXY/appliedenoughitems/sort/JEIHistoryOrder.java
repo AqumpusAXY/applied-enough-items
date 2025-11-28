@@ -17,7 +17,8 @@ public class JEIHistoryOrder {
 
     public static void initOrUpdateHistoryElements(List<IElement<?>> historyElements) {
         if (!isInitialized) {
-            for (int i = 0; i < MAX_HISTORY_SIZE; i++) {
+            var size = Math.min(MAX_HISTORY_SIZE, historyElements.size());
+            for (int i = 0; i < size; i++) {
                 HISTORY_AE_KEYS.addLast(getElementAEKey(historyElements.get(i)));
             }
 
