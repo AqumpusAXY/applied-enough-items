@@ -26,7 +26,7 @@
  * along with Applied Energistics 2.  If not, see <http://www.gnu.org/licenses/lgpl>.
  */
 
-package github.AqumpusAXY.appliedenoughitems.gui.widget;
+package github.aqumpusaxy.appliedenoughitems.gui.widget;
 
 import appeng.client.gui.AEBaseScreen;
 import appeng.client.gui.Icon;
@@ -34,9 +34,9 @@ import appeng.client.gui.style.Blitter;
 import appeng.client.gui.widgets.IconButton;
 import appeng.core.localization.ButtonToolTips;
 import com.mojang.blaze3d.systems.RenderSystem;
-import github.AqumpusAXY.appliedenoughitems.config.CustomSortOrder;
-import github.AqumpusAXY.appliedenoughitems.gui.CustomIcon;
-import github.AqumpusAXY.appliedenoughitems.localization.CustomButtonToolTips;
+import github.aqumpusaxy.appliedenoughitems.config.CustomSortOrder;
+import github.aqumpusaxy.appliedenoughitems.gui.CustomIcon;
+import github.aqumpusaxy.appliedenoughitems.localization.CustomButtonToolTips;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
@@ -49,7 +49,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.*;
 
-import static github.AqumpusAXY.appliedenoughitems.config.ClientConfig.CUSTOM_SORT_ORDER;
+import static github.aqumpusaxy.appliedenoughitems.config.ClientConfig.CUSTOM_SORT_ORDER;
 
 public class CustomSettingToggleButton<T extends Enum<T>> extends IconButton {
 

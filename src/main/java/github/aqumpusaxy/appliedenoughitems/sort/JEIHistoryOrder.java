@@ -1,9 +1,9 @@
-package github.AqumpusAXY.appliedenoughitems.sort;
+package github.aqumpusaxy.appliedenoughitems.sort;
 
 import appeng.api.stacks.AEFluidKey;
 import appeng.api.stacks.AEItemKey;
 import appeng.api.stacks.AEKey;
-import github.AqumpusAXY.appliedenoughitems.util.BoundedLinkedList;
+import github.aqumpusaxy.appliedenoughitems.util.BoundedLinkedList;
 import mezz.jei.gui.overlay.elements.IElement;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;

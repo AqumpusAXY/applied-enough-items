@@ -1,7 +1,7 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "github.AqumpusAXY.appliedenoughitems.mixin",
+  "package": "github.aqumpusaxy.appliedenoughitems.mixin",
   "compatibilityLevel": "JAVA_17",
   "refmap": "appliedenoughitems.refmap.json",
   "mixins": [],

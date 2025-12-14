@@ -1,6 +1,6 @@
-package github.AqumpusAXY.appliedenoughitems;
+package github.aqumpusaxy.appliedenoughitems;
 
-import github.AqumpusAXY.appliedenoughitems.config.ClientConfig;
+import github.aqumpusaxy.appliedenoughitems.config.ClientConfig;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;

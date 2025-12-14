@@ -1,7 +1,7 @@
-package github.AqumpusAXY.appliedenoughitems.client;
+package github.aqumpusaxy.appliedenoughitems.client;
 
-import github.AqumpusAXY.appliedenoughitems.sort.FluidRegistrationOrder;
-import github.AqumpusAXY.appliedenoughitems.sort.ItemCreativeModeTabOrder;
+import github.aqumpusaxy.appliedenoughitems.sort.FluidRegistrationOrder;
+import github.aqumpusaxy.appliedenoughitems.sort.ItemCreativeModeTabOrder;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.ClientPlayerNetworkEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;

@@ -1,4 +1,4 @@
-package github.AqumpusAXY.appliedenoughitems.util;
+package github.aqumpusaxy.appliedenoughitems.util;
 
 import java.util.LinkedList;
 

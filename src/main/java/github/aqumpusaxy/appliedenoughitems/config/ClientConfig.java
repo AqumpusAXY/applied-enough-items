@@ -1,4 +1,4 @@
-package github.AqumpusAXY.appliedenoughitems.config;
+package github.aqumpusaxy.appliedenoughitems.config;
 
 import net.minecraftforge.common.ForgeConfigSpec;
 

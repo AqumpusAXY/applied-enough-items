@@ -1,4 +1,4 @@
-package github.AqumpusAXY.appliedenoughitems.util;
+package github.aqumpusaxy.appliedenoughitems.util;
 
 import appeng.client.gui.me.common.Repo;
 

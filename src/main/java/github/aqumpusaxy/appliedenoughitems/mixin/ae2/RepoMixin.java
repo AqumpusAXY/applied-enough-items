@@ -1,4 +1,4 @@
-package github.AqumpusAXY.appliedenoughitems.mixin.ae2;
+package github.aqumpusaxy.appliedenoughitems.mixin.ae2;
 
 import appeng.api.config.SortDir;
 import appeng.api.config.SortOrder;
@@ -7,9 +7,9 @@ import appeng.client.gui.me.common.Repo;
 import appeng.client.gui.widgets.IScrollSource;
 import appeng.client.gui.widgets.ISortSource;
 import appeng.menu.me.common.GridInventoryEntry;
-import github.AqumpusAXY.appliedenoughitems.config.ClientConfig;
-import github.AqumpusAXY.appliedenoughitems.config.CustomSortOrder;
-import github.AqumpusAXY.appliedenoughitems.util.RepoManager;
+import github.aqumpusaxy.appliedenoughitems.config.ClientConfig;
+import github.aqumpusaxy.appliedenoughitems.config.CustomSortOrder;
+import github.aqumpusaxy.appliedenoughitems.util.RepoManager;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;

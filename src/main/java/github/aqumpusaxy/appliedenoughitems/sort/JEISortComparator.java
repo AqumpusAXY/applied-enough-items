@@ -1,4 +1,4 @@
-package github.AqumpusAXY.appliedenoughitems.sort;
+package github.aqumpusaxy.appliedenoughitems.sort;
 
 import appeng.api.stacks.AEFluidKey;
 import appeng.api.stacks.AEItemKey;
@@ -10,7 +10,7 @@ import java.util.Comparator;
 import java.util.List;
 
 public class JEISortComparator {
-    private static final List<String> MOD_PRIORITY = List.of("minecraft", "ae2");
+    private static final List<String> MOD_PRIORITY = List.of("minecraft", "ae2");//TODO: 移除ae2
     public static final Comparator<AEKey> JEI_ASC = getModNameComparator()
             .thenComparing(getHistoryComparator())  //TODO: 添加设置开关历史记录置顶
             .thenComparing(getTypeComparator())

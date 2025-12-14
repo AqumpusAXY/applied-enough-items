@@ -1,7 +1,7 @@
-package github.AqumpusAXY.appliedenoughitems.mixin.jei;
+package github.aqumpusaxy.appliedenoughitems.mixin.jei;
 
-import github.AqumpusAXY.appliedenoughitems.sort.JEIHistoryOrder;
-import github.AqumpusAXY.appliedenoughitems.util.RepoManager;
+import github.aqumpusaxy.appliedenoughitems.sort.JEIHistoryOrder;
+import github.aqumpusaxy.appliedenoughitems.util.RepoManager;
 import mezz.jei.api.helpers.IColorHelper;
 import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.helpers.IJeiHelpers;
@@ -117,5 +117,7 @@ public class JeiGuiStarterMixin {
                 repo.updateView();
             }
         });
+
+        //TODO: 增加初始化逻辑
     }
 }

@@ -1,4 +1,4 @@
-package github.AqumpusAXY.appliedenoughitems.sort;
+package github.aqumpusaxy.appliedenoughitems.sort;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;

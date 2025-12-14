@@ -1,10 +1,10 @@
-package github.AqumpusAXY.appliedenoughitems.mixin.ae2;
+package github.aqumpusaxy.appliedenoughitems.mixin.ae2;
 
 import appeng.api.config.SortDir;
 import appeng.api.config.SortOrder;
 import appeng.api.stacks.AEKey;
-import github.AqumpusAXY.appliedenoughitems.config.ClientConfig;
-import github.AqumpusAXY.appliedenoughitems.sort.JEISortComparator;
+import github.aqumpusaxy.appliedenoughitems.config.ClientConfig;
+import github.aqumpusaxy.appliedenoughitems.sort.JEISortComparator;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;

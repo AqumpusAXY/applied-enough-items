@@ -1,4 +1,4 @@
-package github.AqumpusAXY.appliedenoughitems.sort;
+package github.aqumpusaxy.appliedenoughitems.sort;
 
 import mezz.jei.common.platform.Services;
 import net.minecraft.core.registries.Registries;

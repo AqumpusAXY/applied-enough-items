@@ -1,4 +1,4 @@
-package github.AqumpusAXY.appliedenoughitems.mixin.ae2;
+package github.aqumpusaxy.appliedenoughitems.mixin.ae2;
 
 import appeng.api.config.SortOrder;
 import appeng.client.gui.AEBaseScreen;
@@ -11,8 +11,8 @@ import appeng.client.gui.widgets.SettingToggleButton;
 import appeng.client.gui.widgets.VerticalButtonBar;
 import appeng.menu.me.common.MEStorageMenu;
 import appeng.util.IConfigManagerListener;
-import github.AqumpusAXY.appliedenoughitems.config.CustomSortOrder;
-import github.AqumpusAXY.appliedenoughitems.gui.widget.CustomSettingToggleButton;
+import github.aqumpusaxy.appliedenoughitems.config.CustomSortOrder;
+import github.aqumpusaxy.appliedenoughitems.gui.widget.CustomSettingToggleButton;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
@@ -26,7 +26,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.List;
 
-import static github.AqumpusAXY.appliedenoughitems.config.ClientConfig.CUSTOM_SORT_ORDER;
+import static github.aqumpusaxy.appliedenoughitems.config.ClientConfig.CUSTOM_SORT_ORDER;
 
 @Mixin(value = MEStorageScreen.class, remap = false)
 public abstract class MEStorageScreenMixin<C extends MEStorageMenu>

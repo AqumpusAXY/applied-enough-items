@@ -26,10 +26,10 @@
  * along with Applied Energistics 2.  If not, see <http://www.gnu.org/licenses/lgpl>.
  */
 
-package github.AqumpusAXY.appliedenoughitems.gui;
+package github.aqumpusaxy.appliedenoughitems.gui;
 
 import appeng.client.gui.style.Blitter;
-import github.AqumpusAXY.appliedenoughitems.AppliedEnoughItems;
+import github.aqumpusaxy.appliedenoughitems.AppliedEnoughItems;
 import net.minecraft.resources.ResourceLocation;
 
 public enum CustomIcon {
