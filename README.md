@@ -12,8 +12,8 @@
 
 ### 许可证
 
-本项目采用 **GNU GPLv3** 开源协议。  
-包含部分来自 [Applied Energistics 2](https://github.com/AppliedEnergistics/Applied-Energistics-2)（LGPLv3）的代码，已按 LGPL 第 3 节合规整合。
+本项目采用 **GNU LGPLv3** 开源协议。  
+包含部分来自 [Applied Energistics 2](https://github.com/AppliedEnergistics/Applied-Energistics-2)（LGPLv3）的代码。
 
 ---
 
@@ -35,8 +35,8 @@ Made by **AqumpusAXY** and **JasmineRain**
 
 ### License
 
-This project is licensed under the **GNU GPLv3**.  
-It includes code derived from [Applied Energistics 2](https://github.com/AppliedEnergistics/Applied-Energistics-2) (LGPLv3), relicensed under GPLv3 in compliance with Section 3 of the LGPL.
+This project is licensed under the **GNU LGPLv3**.  
+It includes code derived from [Applied Energistics 2](https://github.com/AppliedEnergistics/Applied-Energistics-2) (LGPLv3).
 
 ---
 
