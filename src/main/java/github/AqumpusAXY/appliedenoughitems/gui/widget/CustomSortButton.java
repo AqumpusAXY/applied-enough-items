@@ -135,7 +135,7 @@ public class CustomSortButton extends IconButton {
     }
 
     public CustomSortOrder getNextSortOrder(boolean backwards) {
-        return CustomSortOrder.values()[(this.currentSortOrder.ordinal() + (backwards ? -1 : 1)) % CustomSortOrder.values().length];
+        return CustomSortOrder.values()[(this.currentSortOrder.ordinal() + (backwards ? -1 : 1) + CustomSortOrder.values().length) % CustomSortOrder.values().length];
     }
 
     public void toggleSortOrder(boolean backwards) {
