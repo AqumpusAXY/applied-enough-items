@@ -143,7 +143,7 @@ public class CustomSettingToggleButton<T extends Enum<T>> extends IconButton {
 
     public T getNextValue(boolean backwards) {
         T[] values = this.currentValue.getDeclaringClass().getEnumConstants();
-        int nextOrdinal = (this.currentValue.ordinal() + (backwards ? -1 : 1)) % values.length;
+        int nextOrdinal = (this.currentValue.ordinal() + (backwards ? -1 : 1) + values.length) % values.length;
         return values[nextOrdinal];
     }
 
